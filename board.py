@@ -1,16 +1,22 @@
 from array import *
 from player import *
+from ai import *
 
 class Game:
     board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
     player = Player()
+    ai = Ai()
 
     def player_turn(self):
-        self.player.choice()
-        if(self.player.move == "12"):
-            print("works")
-            self.board = [["X", " ", " "], [" ", " ", " "], [" ", " ", " "]] #make a change to only one element globally
-            
+        row, col = self.player.choice(self.board)
+        self.board[row-1][col-1] = "X"
+
+    def ai_turn(self):
+        row, col = self.ai.choice(self.board)
+        self.board[row-1][col-1] = "O"
+        
+    def check_win(self):
+        pass
 
     def print_board(self):
         x = 0
