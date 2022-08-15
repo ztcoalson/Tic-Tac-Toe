@@ -4,13 +4,14 @@ from board import *
 def main():
     #game ready
     g = Game()
-    win = False
-    while not win:
+    while not g.check_win():
         g.print_board()
         g.player_turn()
+        if g.check_win():
+            g.print_board()
+            break
         g.ai_turn()
         g.print_board()
-        win = True
 
 if __name__ == "__main__":
     main()
