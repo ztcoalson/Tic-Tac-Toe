@@ -1,6 +1,10 @@
 import re
 
-class Player:
+class Human:
+    def __init__(self, icon):
+        self.name = "human"
+        self.icon = icon
+
     def choice(self, board):
         while True:
             moves = re.split(" ", input("Move: "))
@@ -19,6 +23,8 @@ class Player:
                 print("this space is occupied")
                 continue
             break
+        row -= 1
+        col -= 1
         return row, col
             
                 

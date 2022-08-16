@@ -1,17 +1,12 @@
 from shutil import move
-from board import *
+from game import *
 
 def main():
-    #game ready
+    ai1 = Ai('X')
+    ai2 = Ai('O')
     g = Game()
-    while not g.check_win():
-        g.print_board()
-        g.player_turn()
-        if g.check_win():
-            g.print_board()
-            break
-        g.ai_turn()
-        g.print_board()
+    print(g.play(ai1, ai2))
+    
 
 if __name__ == "__main__":
     main()
