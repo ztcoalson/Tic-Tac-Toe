@@ -4,17 +4,16 @@ from human import *
 from ai import *
 
 class Game:
-    board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
+    def __init__(self):
+        self.board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
 
     def play(self, p1, p2):
+        self.board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
         while not self.check_win(p1, p2):
-            self.print_board()
             self.player_turn(p1)
             if self.check_win(p1, p2):
-                self.print_board()
                 return self.check_win(p1, p2)
             self.player_turn(p2)
-            self.print_board()
         return self.check_win(p1, p2)
 
     def player_turn(self, p):
@@ -37,21 +36,19 @@ class Game:
                 elif self.board[j][i] == p2.icon:
                     o2 += 1
             if x1 == 3 or x2 == 3:
-                return "player 1 wins"
+                return p1.name
             elif o1 == 3 or o2 == 3:
-                return "player 2 wins"
+                return p2.name
         if filled == 9:
             return "draw"
         diagonal1 = [self.board[0][0], self.board[1][1], self.board[2][2]]
         diagonal2 = [self.board[0][2], self.board[1][1], self.board[2][0]]
         if diagonal1 == [p1.icon]*3 or diagonal2 == [p1.icon]*3:
-            return "player 1 wins"
+            return p1.name
         elif diagonal1 == [p2.icon]*3 or diagonal2 == [p2.icon]*3:
-            return "player 2 wins"
+            return p2.name
         return None
                 
-
-
     def print_board(self):
         x = 0
         y = 0

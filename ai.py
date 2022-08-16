@@ -1,8 +1,8 @@
 import random
 
 class Ai:
-    def __init__(self, icon):
-        self.name = "ai"
+    def __init__(self, icon, name = "ai"):
+        self.name = name
         self.icon = icon
 
     def choice(self, board):
