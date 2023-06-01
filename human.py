@@ -1,9 +1,10 @@
 import re
 
 class Human:
-    def __init__(self, icon):
-        self.name = "human"
+    def __init__(self, icon, number, name = "human"):
+        self.name = name
         self.icon = icon
+        self.number = number
 
     def choice(self, board):
         while True:
@@ -19,13 +20,12 @@ class Human:
             if row > 3 or row < 1 or col > 3 or col < 1:
                 print("please enter values between 1 and 3")
                 continue
-            if board[row-1][col-1] != " ":
+            if board[row-1][col-1] != 0:
                 print("this space is occupied")
                 continue
             break
-        row -= 1
-        col -= 1
-        return row, col
+
+        return row-1, col-1
             
                 
             

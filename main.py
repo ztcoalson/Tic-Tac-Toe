@@ -1,10 +1,10 @@
-from shutil import move
 from game import *
 from ml import *
 
 def main():
-    ml = ML(100)
-    print(ml.runIteration())
+    game = Game()
+    winner = game.play()
+    print(f"{winner} wins!")
 
 if __name__ == "__main__":
     main()
