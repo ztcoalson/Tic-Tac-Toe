@@ -1,10 +1,6 @@
-from game import *
-from ml import *
-
-def main():
-    game = Game()
-    winner = game.play()
-    print(f"{winner} wins!")
+from game import Game
 
 if __name__ == "__main__":
-    main()
+    game = Game()
+    game.print_board()
+    game.turn()
